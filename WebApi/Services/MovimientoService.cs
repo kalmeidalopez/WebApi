@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApi.DAL;
 using WebApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Services
 {
@@ -29,8 +30,18 @@ namespace WebApi.Services
 
         public Task<Movimiento> GetAsync(int idmovimiento)
         {
-            var cuenta = context.Movimientos.Find(idmovimiento);
-            return Task.FromResult(cuenta);
+            return context.Movimientos.Include("Cuenta").SingleOrDefaultAsync(p=>p.IdMovimiento == idmovimiento);            
+        }
+
+        public Task<List<Movimiento>> GetEstadoCuentaAsync(int clienteid, DateTime fechaInicio, DateTime fechaFin)
+        {
+            //var movimientos = context.Movimientos.Where(p=> 
+            //    p.Cuenta.Clienteid == clienteid &&
+            //    p.Fecha.Date >= fechaInicio.Date && p.Fecha.Date <= fechaFin.Date).GroupBy(p=> 
+            //        p.Cuenta
+            //        );
+            List<Movimiento> movimientos = new List<Movimiento>();
+            return Task.FromResult(movimientos.ToList());
         }
 
         public async Task<ResponseWebApi> SaveAsync(MovimientoInsertDTO movimiento)
@@ -38,7 +49,6 @@ namespace WebApi.Services
             ResponseWebApi response = new ResponseWebApi();
             try
             {
-                response.StatusCode = System.Net.HttpStatusCode.OK;   
                 var cuenta = context.Cuentas.Find(movimiento.IdCuenta);
                 if (cuenta != null)
                 {
@@ -55,20 +65,17 @@ namespace WebApi.Services
                         if ((limiteDiario - valorRetirado) < 0)
                         {
                             response.Message = "Cupo diario Excedido";
-                            response.StatusCode = System.Net.HttpStatusCode.NotFound;
                         }
                         else if (cuenta.SaldoInicial - movimiento.Valor < 0 && movimiento.TipoMovimiento == "Debito")
                         {
                             response.Message = "Saldo no disponible";
-                            response.StatusCode = System.Net.HttpStatusCode.NotFound;
                         }
                         else if (cuenta.SaldoInicial - movimiento.Valor < 0 && movimiento.TipoMovimiento == "Debito")
                         {
                             response.Message = "Saldo no disponible";
-                            response.StatusCode = System.Net.HttpStatusCode.NotFound;
                         }
-                    }    
-                    else
+                    }
+                    if(string.IsNullOrEmpty(response.Message))
                     {
                         Movimiento model = new Movimiento();
                         model.IdMovimiento = maxid;
@@ -90,15 +97,11 @@ namespace WebApi.Services
                 else
                 {
                     response.Message = "Cuenta no existe";
-                    response.StatusCode = System.Net.HttpStatusCode.NotFound;
-                }
-
-                     
+                }      
             }
             catch (Exception ex)
             {
                 response.Message = ex.Message.ToString();
-                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
             }
             return await Task.FromResult(response);
         }

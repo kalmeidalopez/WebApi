@@ -13,7 +13,18 @@ namespace WebApi.Models
         public string TipoMovimiento { get; set; }
         public decimal Valor { get; set; }
         public decimal Saldo { get; set; }
-        public virtual Cuenta Cuenta { get; set; }
+        public Cuenta Cuenta { get; set; }
+    }
+
+    public class MovimientoQueryDTO
+    {
+        public int IdMovimiento { get; set; }
+        public int IdCuenta { get; set; }
+        public DateTime Fecha { get; set; }
+        public string TipoMovimiento { get; set; }
+        public decimal Valor { get; set; }
+        public decimal Saldo { get; set; }
+        public CuentaQueryDTO Cuenta { get; set; }
     }
 
     public class MovimientoInsertDTO

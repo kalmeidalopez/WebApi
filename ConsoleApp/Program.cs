@@ -18,7 +18,7 @@ namespace ConsoleApp
 
 
 
-            Console.WriteLine("2. Creacion de Cliente.!!");
+            Console.WriteLine("1. Creacion de Cliente.!!");
             List<Cliente> clientes = new List<Cliente>();
             List<Cuenta> cuentas1 = new List<Cuenta>();
             List<Cuenta> cuentas2 = new List<Cuenta>();
@@ -84,7 +84,7 @@ namespace ConsoleApp
             foreach (var cliente in clientes)
             {
                var response = http(endpointClientes, cliente);
-                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                if(response != null && response.Id != 0)
                     cliente.Id = response.Id;
             }
             Console.WriteLine("2. Creacion de Cuentas de Cliente.!");
@@ -94,7 +94,7 @@ namespace ConsoleApp
                 {
                     cuenta.Clienteid = cliente.Id;
                     var response = http(endpointCuentas, cuenta);
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    if (response != null && response.Id != 0)
                     {
                         cuenta.IdCuenta = response.Id;
                         cuentas.Add(cuenta);
@@ -113,7 +113,7 @@ namespace ConsoleApp
                     SaldoInicial = 1000
                 };
                 var response = http(endpointCuentas, cuentajose);
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (response != null && response.Id != 0)
                 {
                     cuentajose.IdCuenta = response.Id;
                     clienteJose.Cuentas.Add(cuentajose);
@@ -182,15 +182,6 @@ namespace ConsoleApp
                     string resultContent = response.Content.ReadAsStringAsync().Result;
 
                     serviceResponse = JsonConvert.DeserializeObject<ServiceResponse>(resultContent);
-                    //if (serviceResponse != null)
-                    //{
-                    //    if (serviceResponse.messages.Where(p => p.id == "TOKEN").Any())
-                    //        token = serviceResponse.messages.Where(p => p.id == "TOKEN").FirstOrDefault().text;
-                    //    if (serviceResponse.responseStatus == "OK")
-                    //        reintento = Reintento + 1;
-                    //    else
-                    //        reintento++;
-                    //}
                 }
                 catch (Exception ex)
                 {

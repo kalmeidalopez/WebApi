@@ -9,7 +9,6 @@ namespace WebApi.Models
     public class ResponseWebApi
     {
         public int Id { get; set; }
-        public HttpStatusCode StatusCode { get; set; }
         public string Message { get; set; }
     }
 }

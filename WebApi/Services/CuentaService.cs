@@ -24,7 +24,6 @@ namespace WebApi.Services
             ResponseWebApi response = new ResponseWebApi();
             try
             {
-                response.StatusCode = System.Net.HttpStatusCode.OK;
                 int maxid = 1;
                 if (context.Cuentas.Any())
                     maxid = context.Cuentas.Max(p => p.IdCuenta) + 1;
@@ -43,7 +42,6 @@ namespace WebApi.Services
             catch (Exception ex)
             {
                 response.Message = ex.Message.ToString();
-                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
             }
             return await Task.FromResult(response);
         }
@@ -53,7 +51,6 @@ namespace WebApi.Services
             try
             {
                 response.Id = cuenta.IdCuenta;
-                response.StatusCode = System.Net.HttpStatusCode.OK;
                 var cuentaup = context.Cuentas.Find(cuenta.IdCuenta);
                 if (cuentaup != null)
                 {
@@ -63,13 +60,11 @@ namespace WebApi.Services
                 else
                 {
                     response.Message = "Cuenta no existe";
-                    response.StatusCode = System.Net.HttpStatusCode.NotFound;
                 }
             }
             catch (Exception ex)
             {
                 response.Message = ex.Message.ToString();
-                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
             }
             return await Task.FromResult(response);
 }
@@ -79,7 +74,6 @@ namespace WebApi.Services
             try
             {
                 response.Id = idcuenta;
-                response.StatusCode = System.Net.HttpStatusCode.OK;
                 var cuentasdel = context.Cuentas.Find(idcuenta);
                 if (cuentasdel != null)
                 {
@@ -90,13 +84,11 @@ namespace WebApi.Services
                 else
                 {
                     response.Message = "Cuenta no existe";
-                    response.StatusCode = System.Net.HttpStatusCode.NotFound;
                 }
             }
             catch (Exception ex)
             {
                 response.Message = ex.Message.ToString();
-                response.StatusCode = System.Net.HttpStatusCode.InternalServerError;
             }
             return await Task.FromResult(response);
 }

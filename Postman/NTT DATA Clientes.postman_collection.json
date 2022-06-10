@@ -45,7 +45,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nombre\": \"KEVIN\",\r\n  \"genero\": \"MASCULINO\",\r\n  \"edad\": 34,\r\n  \"identificacion\": \"12345467\",\r\n  \"direccion\": \"LA JOYA\",\r\n  \"telefono\": \"12345\",\r\n  \"contrasenia\": \"55555\"\r\n}",
+					"raw": "{\r\n  \"Contrasenia\": \"12454\",\r\n  \"Nombre\": \"Juan Osorio\",\r\n  \"Genero\": \"Maculino\",\r\n  \"Edad\": 30,\r\n  \"Identificacion\": \"5555\",\r\n  \"Direccion\": \"3 junio y Equinoccial\",\r\n  \"Telefono\": \"098874587\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

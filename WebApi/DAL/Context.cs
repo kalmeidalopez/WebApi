@@ -53,7 +53,7 @@ namespace WebApi.DAL
                 movimiento.ToTable("tbMovimiento");
                 movimiento.HasKey(p => p.IdMovimiento);
                 movimiento.Property(p => p.IdCuenta);
-                movimiento.HasOne(p => p.Cuenta).WithMany(p => p.Movimientos).HasForeignKey(p => p.IdMovimiento);
+                movimiento.HasOne(p => p.Cuenta).WithMany(p => p.Movimientos).HasForeignKey(p => p.IdCuenta);
                 movimiento.Property(p => p.Fecha).IsRequired();
                 movimiento.Property(p => p.TipoMovimiento).IsRequired();
                 movimiento.Property(p => p.Valor).IsRequired();

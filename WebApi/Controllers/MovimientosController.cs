@@ -19,13 +19,32 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{idmovimiento}")]
-        public async Task<IActionResult> Get(int idmovimiento)
+        public async Task<IActionResult> GetAsync(int idmovimiento)
         {
             var movimiento = await movimientoService.GetAsync(idmovimiento);
-
+           
             if (movimiento != null)
             {
-                return Ok(movimiento);
+                MovimientoQueryDTO movimientoQuery = new MovimientoQueryDTO()
+                {
+                    IdCuenta = movimiento.IdCuenta,
+                    Fecha = movimiento.Fecha,
+                    IdMovimiento = movimiento.IdMovimiento,
+                    TipoMovimiento = movimiento.TipoMovimiento,
+                    Valor = movimiento.Valor,
+                    Saldo = movimiento.Saldo,
+                    Cuenta = new CuentaQueryDTO()
+                    {
+                        IdCuenta = movimiento.Cuenta.IdCuenta,
+                        Clienteid = movimiento.Cuenta.Clienteid,
+                        Estado = movimiento.Cuenta.Estado,
+                        NumeroCuenta = movimiento.Cuenta.NumeroCuenta,
+                        SaldoInicial = movimiento.Cuenta.SaldoInicial,
+                        TipoCuenta = movimiento.Cuenta.TipoCuenta,
+                        FechaIngreso = movimiento.Cuenta.FechaIngreso
+                    },
+                };
+                return Ok(movimientoQuery);
             }
             return NotFound();
         }

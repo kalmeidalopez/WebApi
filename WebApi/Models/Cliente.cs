@@ -11,7 +11,7 @@ namespace WebApi.Models
         public string Contrasenia { get; set; }
         public bool Estado { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public virtual List<Cuenta> Cuentas { get; set; }
+        public List<Cuenta> Cuentas { get; set; }
     }
 
     public class ClienteInsertDTO : PersonaInsertDTO

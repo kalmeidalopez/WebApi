@@ -10,7 +10,6 @@ namespace WebApi.Services
     {
         Task<Movimiento> GetAsync(int idmovimiento);
         Task<ResponseWebApi> SaveAsync(MovimientoInsertDTO movimiento);
-        //Task UpdateAsync(MovimientoInsertDTO movimiento);
-        //Task DeleteAsync(int idmovimiento);
+        Task<List<Movimiento>> GetEstadoCuentaAsync(int clienteid, DateTime fechaInicio, DateTime fechaFin);
     }
 }

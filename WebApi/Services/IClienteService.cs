@@ -10,9 +10,10 @@ namespace WebApi.Services
     {
         Task<List<Cliente>> GetAsync();
         Task<Cliente> GetAsync(int clienteid);
-        Task<ResponseWebApi> SaveAsync(ClienteInsertDTO cliente);
-        Task<ResponseWebApi> UpdateAsync(ClienteUpdateDTO cliente);
-        Task<ResponseWebApi> DeleteAsync(int clienteid);
+        Task SaveAsync(Cliente cliente);
+        Task UpdateAsync(Cliente cliente);
+        Task DeleteAsync(int clienteid);
+        Cliente Get(int clienteid);
 
     }
 }

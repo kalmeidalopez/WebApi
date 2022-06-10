@@ -10,7 +10,6 @@ namespace ConsoleApp.Models
     class ServiceResponse
     {
         public int Id { get; set; }
-        public HttpStatusCode StatusCode { get; set; }
         public string Message { get; set; }
     }
 }

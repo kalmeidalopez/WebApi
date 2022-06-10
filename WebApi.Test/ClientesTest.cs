@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WebApi.Controllers;
@@ -18,8 +19,6 @@ namespace WebApi.Test
     [TestClass]
     public class ClientesTest
     {
-        private readonly ClientesController _controller;
-        private readonly ClienteService _Service;
         private ClienteInsertDTO clienteInsert;
         private Cliente cliente;
         public ClientesTest()
@@ -89,21 +88,28 @@ namespace WebApi.Test
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
-        public async Task GetCreateOk()
-        {
-            //Arrage
-            var nameDb = Guid.NewGuid().ToString();
-            var serviceProvider = CreateContext(nameDb);
 
-            var db = serviceProvider.GetService<Context>();
+        //[TestMethod]
+        //public async Task GetCreateOk()
+        //{
+        //    //Arrage
+        //    var nameDb = Guid.NewGuid().ToString();
+        //    var serviceProvider = CreateContext(nameDb);
 
-            var clientesService = new ClienteService(db);
-            var clientesController = new ClientesController(clientesService);
+        //    var db = serviceProvider.GetService<Context>();
 
-            var result = await clientesService.SaveAsync(clienteInsert);
+        //    var clientesService = new ClienteService(db);
+        //    var clientesController = new ClientesController(clientesService);
 
-            Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
-        }
+        //    var response = await clientesController.PostAsync(clienteInsert);
+
+        //    response.EnsureSuccessStatusCode();
+        //    string resultContent = response.Content.ReadAsStringAsync().Result;
+
+        //    serviceResponse = JsonConvert.DeserializeObject<ServiceResponse>(resultContent);
+
+
+        //    //Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+        //}
     }
 }
