@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pJNC998pVWymPk22AY6xqDwGl0C1N3z9m1Qj+GznKMxg0lGfEHKcJfQAvb0IEJru+N0AJAxFEaaMIgpjfKZOZQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Rp3\\source\\repos\\NTT DATA\\ConsoleApp\\ConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rp3\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
