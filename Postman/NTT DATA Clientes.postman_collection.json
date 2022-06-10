@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "c01150e8-8e13-4ce3-94bf-5ae99373b82b",
+		"name": "NTT DATA Clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11971034"
+	},
+	"item": [
+		{
+			"name": "Get Clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clienteid\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:51229/api/Clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Clientes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"KEVIN\",\r\n  \"genero\": \"MASCULINO\",\r\n  \"edad\": 34,\r\n  \"identificacion\": \"12345467\",\r\n  \"direccion\": \"LA JOYA\",\r\n  \"telefono\": \"12345\",\r\n  \"contrasenia\": \"55555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:51229/api/Clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Clientes",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"5\",\r\n  \"nombre\": \"KEVIN ALMEIDA\",\r\n  \"genero\": \"MASCULINO\",\r\n  \"edad\": 34,\r\n  \"identificacion\": \"12345467\",\r\n  \"direccion\": \"LA JOYA\",\r\n  \"telefono\": \"12345\",\r\n  \"contrasenia\": \"55555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:51229/api/Clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEL Clientes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:51229/api/Clientes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Clientes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

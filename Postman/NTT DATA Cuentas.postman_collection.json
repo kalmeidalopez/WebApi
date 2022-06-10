@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "1e78b7eb-900f-494b-bbdf-742fe5b13a90",
+		"name": "NTT DATA Cuentas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11971034"
+	},
+	"item": [
+		{
+			"name": "Get Cuentas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:51229/api/Cuentas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Cuentas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Cuentas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clienteid\": 1,\r\n  \"numeroCuenta\": \"1234567893\",\r\n  \"tipoCuenta\": \"Ahorro\",\r\n  \"saldoInicial\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:51229/api/Cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Cuentas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"saldoInicial\": 340\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:51229/api/Cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del Cuentas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:51229/api/Cuentas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Cuentas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

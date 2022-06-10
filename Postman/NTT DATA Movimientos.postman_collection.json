@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "3489a41f-9b76-4e64-938e-2b1eaa45e598",
+		"name": "NTT DATA Movimientos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11971034"
+	},
+	"item": [
+		{
+			"name": "Get Movimientos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post Movimientos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idCuenta\": 1,\r\n  \"tipoMovimiento\": \"Debito\",\r\n  \"valor\": 150\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:51229/api/Movimientos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "51229",
+					"path": [
+						"api",
+						"Movimientos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
