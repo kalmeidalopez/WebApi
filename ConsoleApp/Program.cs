@@ -17,7 +17,6 @@ namespace ConsoleApp
             string endpointMovimientos = "http://localhost:51229/api/Movimientos/";
 
 
-
             Console.WriteLine("1. Creacion de Cliente.!!");
             List<Cliente> clientes = new List<Cliente>();
             List<Cuenta> cuentas1 = new List<Cuenta>();
@@ -164,6 +163,7 @@ namespace ConsoleApp
             {
                 var response = http(endpointMovimientos, movimiento);
             }
+         
         }
         public static ServiceResponse http(string endpoint, object value)
         {
